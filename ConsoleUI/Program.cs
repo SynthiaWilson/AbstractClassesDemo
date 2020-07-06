@@ -30,7 +30,7 @@ namespace ConsoleUI
              * DONE Add a distict property in the 2 derived classes such as HasTrunk for Car and HasSideCart for Motorcycle
              * DONEProvide the implementations for the abstract methods
              * DONE Only in the Motorcycle class will you override the virtual drive method
-             * ????????
+             * 
             */
 
             // Create a list of Vehicle called vehicles
@@ -39,10 +39,10 @@ namespace ConsoleUI
             var vehicles = new List<Vehicle>();
 
             /*
-             * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
-             * - new it up as one of each derived class
-             * Set the properties with object initializer syntax
-             * ?????
+             * DONE Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
+             * DONE - new it up as one of each derived class
+             * DONE Set the properties with object initializer syntax
+             * 
              */
 
             Car newCar = new Car()
@@ -61,30 +61,57 @@ namespace ConsoleUI
                 Year = 1999
             };
 
-            Vehicle sedan = new Car();
-            
-            sedan.DriveAbstract();
-            sedan.DriveVirtual();
-            sedan.Year = 2020;
-            sedan.Model = "Polaris";
-            sedan.Make = "GroundCrew 3s";
-            sedan.HasTrunk = true;
+            Vehicle sedan = new Car()
+            {
+                Year = 2020,
+                Model = "Polaris",
+                Make = "GroundCrew 3s",
+                HasTrunk = true
+            };
 
-            Vehicle sport = new Car();
-            sport.Year = 2003;
-            sport.
-            
-        
+           
+
+            Vehicle sport = new Car()
+            {
+                Year = 2003,
+                Make = "Convertible",
+                Model = "Ford Fusion",
+                HasTrunk = false
+            };
+
+
 
             /*
-             * Add the 4 vehicles to the list
-             * Using a foreach loop iterate over each of the properties
+             * DONE Add the 4 vehicles to the list
+             * DONE Using a foreach loop iterate over each of the properties
              */
 
-            // Call each of the drive methods for one car and one motorcycle
+            vehicles.Add(newCar);
+            vehicles.Add(motorcycle);
+            vehicles.Add(sedan);
+            vehicles.Add(sport);
+
+            foreach (var veh in vehicles)
+            {
+                Console.WriteLine($"Make {veh.Make} Model {veh.Model}  Year {veh.Year}");
+                veh.DriveAbstract();
+                veh.DriveVirtual();
+                Console.WriteLine("----------------------------------------------");
+            }
+
+
+            // DONE Call each of the drive methods for one car and one motorcycle
+
+            motorcycle.DriveAbstract();
+            sport.DriveVirtual();
 
             #endregion            
             Console.ReadLine();
+
+
+
+         
         }
     }
 }
+
